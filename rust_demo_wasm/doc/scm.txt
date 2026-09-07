@@ -1,0 +1,36 @@
+
+echo "# RUST_DEMO_WASM" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/aperezNWO/RUST_DEMO_WASM.git
+git push -u origin main
+
+
+my-rust-project/
+├── Cargo.toml
+├── Cargo.lock
+├── src/
+│   ├── main.rs        # Main entry point / REST server setup
+│   └── fractals.rs    # Place the translated fractal engine code here
+│   └── lib.rs         # Mandatory root entry point for a Rust library crate
+└── target/            # Build artifacts (ignored by git)
+
+## CREATE NEW PROJECT
+
+cargo new --lib rust_demo_wasm
+
+## INSTALL LIBRARIES
+
+# option 1 - git bash
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+# option 2 - slower
+cargo install wasm-pack
+
+## BUILD CODE
+wasm-pack build --target web            
+
+## TEST CODE
+wasm-pack test --headless --chrome
