@@ -9,7 +9,17 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 getrandom = { version = "0.2", features = ["js"] }
-wasm-bindgen-test = "0.2"
 wasm-bindgen = "0.2"
 js-sys = "0.3"
 rand = "0.8"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.2"
+
+[[test]]
+name = "fractal_tests"
+path = "tests/fractal_tests.rs"
+
+[[test]]
+name = "web_tests"
+path = "tests/web_tests.rs"
