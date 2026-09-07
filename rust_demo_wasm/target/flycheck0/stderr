@@ -1,0 +1,315 @@
+   0.040901200s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint: fingerprint error for rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rust_demo_wasm", ["cdylib", "rlib"], "D:\\usuarios\\pabloperez\\dev\\rust\\RUST_DEMO_WASM\\rust_demo_wasm\\src\\lib.rs", Edition2021) }
+   0.040990400s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm\target\debug\.fingerprint\rust_demo_wasm-f53d8141bb9be4c4\lib-rust_demo_wasm`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::win64::trace
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/win64.rs:85:14
+   1: std::backtrace_rs::backtrace::trace_unsynchronized::<<std::backtrace::Backtrace>::create::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/mod.rs:66:14
+   2: <std::backtrace::Backtrace>::create
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:331:13
+   3: <std::backtrace::Backtrace>::capture
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:296:9
+   4: <core::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   5: cargo_util::paths::read
+   6: cargo::core::compiler::fingerprint::prepare_target
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: <&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\core\src\ops/function.rs:287:21
+  18: std::panicking::catch_unwind::do_call::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  19: std::panicking::catch_unwind::<i32, &dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  20: std::panic::catch_unwind::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  21: std::rt::lang_start_internal::{closure#0}
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:175:24
+  22: std::panicking::catch_unwind::do_call::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  23: std::panicking::catch_unwind::<isize, std::rt::lang_start_internal::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  24: std::panic::catch_unwind::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  25: std::rt::lang_start_internal
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:171:5
+  26: main
+  27: __tmainCRTStartup
+  28: mainCRTStartup
+  29: <unknown>
+  30: <unknown>
+   0.055687100s  INFO prepare_target{force=false package_id=serde v1.0.229 target="serde"}: cargo::core::compiler::fingerprint: fingerprint error for serde v1.0.229/Check { test: false }/TargetInner { ..: lib_target("serde", ["lib"], "C:\\rust\\cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde-1.0.229\\src\\lib.rs", Edition2021) }
+   0.055725200s  INFO prepare_target{force=false package_id=serde v1.0.229 target="serde"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm\target\debug\.fingerprint\serde-447629d4a76155dc\lib-serde`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::win64::trace
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/win64.rs:85:14
+   1: std::backtrace_rs::backtrace::trace_unsynchronized::<<std::backtrace::Backtrace>::create::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/mod.rs:66:14
+   2: <std::backtrace::Backtrace>::create
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:331:13
+   3: <std::backtrace::Backtrace>::capture
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:296:9
+   4: <core::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   5: cargo_util::paths::read
+   6: cargo::core::compiler::fingerprint::prepare_target
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::cli::main
+  15: cargo::main
+  16: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  17: std::rt::lang_start::<()>::{closure#0}
+  18: <&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\core\src\ops/function.rs:287:21
+  19: std::panicking::catch_unwind::do_call::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  20: std::panicking::catch_unwind::<i32, &dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  21: std::panic::catch_unwind::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  22: std::rt::lang_start_internal::{closure#0}
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:175:24
+  23: std::panicking::catch_unwind::do_call::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  24: std::panicking::catch_unwind::<isize, std::rt::lang_start_internal::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  25: std::panic::catch_unwind::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  26: std::rt::lang_start_internal
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:171:5
+  27: main
+  28: __tmainCRTStartup
+  29: mainCRTStartup
+  30: <unknown>
+  31: <unknown>
+   0.056940200s  INFO prepare_target{force=false package_id=serde_core v1.0.229 target="serde_core"}: cargo::core::compiler::fingerprint: fingerprint error for serde_core v1.0.229/Check { test: false }/TargetInner { ..: lib_target("serde_core", ["lib"], "C:\\rust\\cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde_core-1.0.229\\src\\lib.rs", Edition2021) }
+   0.056963900s  INFO prepare_target{force=false package_id=serde_core v1.0.229 target="serde_core"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm\target\debug\.fingerprint\serde_core-5700811c5eb7902a\lib-serde_core`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::win64::trace
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/win64.rs:85:14
+   1: std::backtrace_rs::backtrace::trace_unsynchronized::<<std::backtrace::Backtrace>::create::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/mod.rs:66:14
+   2: <std::backtrace::Backtrace>::create
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:331:13
+   3: <std::backtrace::Backtrace>::capture
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:296:9
+   4: <core::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   5: cargo_util::paths::read
+   6: cargo::core::compiler::fingerprint::prepare_target
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: cargo::core::compiler::compile
+  10: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  11: cargo::ops::cargo_compile::compile_with_exec
+  12: cargo::ops::cargo_compile::compile
+  13: cargo::commands::check::exec
+  14: <cargo::cli::Exec>::exec
+  15: cargo::cli::main
+  16: cargo::main
+  17: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  18: std::rt::lang_start::<()>::{closure#0}
+  19: <&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\core\src\ops/function.rs:287:21
+  20: std::panicking::catch_unwind::do_call::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  21: std::panicking::catch_unwind::<i32, &dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  22: std::panic::catch_unwind::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  23: std::rt::lang_start_internal::{closure#0}
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:175:24
+  24: std::panicking::catch_unwind::do_call::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  25: std::panicking::catch_unwind::<isize, std::rt::lang_start_internal::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  26: std::panic::catch_unwind::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  27: std::rt::lang_start_internal
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:171:5
+  28: main
+  29: __tmainCRTStartup
+  30: mainCRTStartup
+  31: <unknown>
+  32: <unknown>
+   0.063651900s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint: fingerprint error for rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("rust_demo_wasm", ["cdylib", "rlib"], "D:\\usuarios\\pabloperez\\dev\\rust\\RUST_DEMO_WASM\\rust_demo_wasm\\src\\lib.rs", Edition2021) }
+   0.063682000s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm\target\debug\.fingerprint\rust_demo_wasm-5cb60360fe150c38\test-lib-rust_demo_wasm`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::win64::trace
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/win64.rs:85:14
+   1: std::backtrace_rs::backtrace::trace_unsynchronized::<<std::backtrace::Backtrace>::create::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/mod.rs:66:14
+   2: <std::backtrace::Backtrace>::create
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:331:13
+   3: <std::backtrace::Backtrace>::capture
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:296:9
+   4: <core::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   5: cargo_util::paths::read
+   6: cargo::core::compiler::fingerprint::prepare_target
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: <&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\core\src\ops/function.rs:287:21
+  18: std::panicking::catch_unwind::do_call::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  19: std::panicking::catch_unwind::<i32, &dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  20: std::panic::catch_unwind::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  21: std::rt::lang_start_internal::{closure#0}
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:175:24
+  22: std::panicking::catch_unwind::do_call::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  23: std::panicking::catch_unwind::<isize, std::rt::lang_start_internal::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  24: std::panic::catch_unwind::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  25: std::rt::lang_start_internal
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:171:5
+  26: main
+  27: __tmainCRTStartup
+  28: mainCRTStartup
+  29: <unknown>
+  30: <unknown>
+   0.064227200s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint: fingerprint error for rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm)/Check { test: false }/TargetInner { name: "rust_demo_wasm", doc: true, ..: with_path("D:\\usuarios\\pabloperez\\dev\\rust\\RUST_DEMO_WASM\\rust_demo_wasm\\src\\main.rs", Edition2021) }
+   0.064256700s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm\target\debug\.fingerprint\rust_demo_wasm-74155823cf1fd778\bin-rust_demo_wasm`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::win64::trace
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/win64.rs:85:14
+   1: std::backtrace_rs::backtrace::trace_unsynchronized::<<std::backtrace::Backtrace>::create::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/mod.rs:66:14
+   2: <std::backtrace::Backtrace>::create
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:331:13
+   3: <std::backtrace::Backtrace>::capture
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:296:9
+   4: <core::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   5: cargo_util::paths::read
+   6: cargo::core::compiler::fingerprint::prepare_target
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: <&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\core\src\ops/function.rs:287:21
+  18: std::panicking::catch_unwind::do_call::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  19: std::panicking::catch_unwind::<i32, &dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  20: std::panic::catch_unwind::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  21: std::rt::lang_start_internal::{closure#0}
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:175:24
+  22: std::panicking::catch_unwind::do_call::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  23: std::panicking::catch_unwind::<isize, std::rt::lang_start_internal::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  24: std::panic::catch_unwind::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  25: std::rt::lang_start_internal
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:171:5
+  26: main
+  27: __tmainCRTStartup
+  28: mainCRTStartup
+  29: <unknown>
+  30: <unknown>
+   0.064762700s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint: fingerprint error for rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm)/Check { test: true }/TargetInner { name: "rust_demo_wasm", doc: true, ..: with_path("D:\\usuarios\\pabloperez\\dev\\rust\\RUST_DEMO_WASM\\rust_demo_wasm\\src\\main.rs", Edition2021) }
+   0.064782800s  INFO prepare_target{force=false package_id=rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm) target="rust_demo_wasm"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm\target\debug\.fingerprint\rust_demo_wasm-480e88c4eb5fd307\test-bin-rust_demo_wasm`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::win64::trace
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/win64.rs:85:14
+   1: std::backtrace_rs::backtrace::trace_unsynchronized::<<std::backtrace::Backtrace>::create::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src\..\..\backtrace\src\backtrace/mod.rs:66:14
+   2: <std::backtrace::Backtrace>::create
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:331:13
+   3: <std::backtrace::Backtrace>::capture
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/backtrace.rs:296:9
+   4: <core::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   5: cargo_util::paths::read
+   6: cargo::core::compiler::fingerprint::prepare_target
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: <&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\core\src\ops/function.rs:287:21
+  18: std::panicking::catch_unwind::do_call::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  19: std::panicking::catch_unwind::<i32, &dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  20: std::panic::catch_unwind::<&dyn core::ops::function::Fn<(), Output = i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe, i32>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  21: std::rt::lang_start_internal::{closure#0}
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:175:24
+  22: std::panicking::catch_unwind::do_call::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:576:43
+  23: std::panicking::catch_unwind::<isize, std::rt::lang_start_internal::{closure#0}>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panicking.rs:544:19
+  24: std::panic::catch_unwind::<std::rt::lang_start_internal::{closure#0}, isize>
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/panic.rs:359:14
+  25: std::rt::lang_start_internal
+             at /rustc/88d9e12ae178fab0fb5cc050a94da85685d449ea/library\std\src/rt.rs:171:5
+  26: main
+  27: __tmainCRTStartup
+  28: mainCRTStartup
+  29: <unknown>
+  30: <unknown>
+    Checking serde_core v1.0.229
+    Checking serde v1.0.229
+    Checking rust_demo_wasm v0.1.0 (D:\usuarios\pabloperez\dev\rust\RUST_DEMO_WASM\rust_demo_wasm)
+error: could not compile `rust_demo_wasm` (lib) due to 5 previous errors; 1 warning emitted
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `rust_demo_wasm` (lib test) due to 5 previous errors; 1 warning emitted

@@ -1,0 +1,42 @@
+# Rust / Cargo
+/target/
+**/*.rs.bk
+
+# wasm-pack / WebAssembly artifacts
+/pkg/
+/bundler/
+*.wasm
+
+# Go binaries and build outputs
+*.exe
+*.dll
+*.so
+*.dylib
+app
+app.exe
+
+# Node.js / Angular
+/node_modules/
+/.angular/
+/dist/
+.pnp
+.pnp.js
+
+# Environment variables & local configuration
+.env
+.env.local
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
