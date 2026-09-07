@@ -1,8 +1,15 @@
 use wasm_bindgen::prelude::*;
+use wasm_bindgen_test::*;
 use rand::Rng;
 
 const CANVAS_WIDTH: usize = 800;
 const CANVAS_HEIGHT: usize = 600;
+
+wasm_bindgen_test_configure!(run_in_browser);
+#[wasm_bindgen_test]
+fn pass_test() {
+    assert_eq!(1 + 1, 2);
+}
 
 #[wasm_bindgen]
 pub struct FractalEngine;

@@ -5,6 +5,7 @@ pub const CANVAS_WIDTH: usize = 800;
 pub const CANVAS_HEIGHT: usize = 600;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[allow(dead_code)]
 pub enum FractalKind {
     Mandelbrot = 1,
     Julia = 2,
@@ -12,6 +13,7 @@ pub enum FractalKind {
 }
 
 impl FractalKind {
+    #[allow(dead_code)]
     pub fn from_i32(val: i32) -> Result<Self, String> {
         match val {
             1 => Ok(FractalKind::Mandelbrot),
