@@ -62,41 +62,41 @@ impl Engine {
         (iter * 255) / max_iterations
     }
 
-    pub fn generate_mandelbrot(&self, bounds: Bounds, max_iterations: i32) -> Vec<FractalPoint> {
-        let mut points = Vec::with_capacity(CANVAS_WIDTH * CANVAS_HEIGHT);
-        let x_range = bounds.x_max - bounds.x_min;
-        let y_range = bounds.y_max - bounds.y_min;
+fn generate_mandelbrot(x_min: f64, x_max: f64, y_min: f64, y_max: f64, max_iterations: i32) -> Vec<FractalPoint> {
+    let mut points = Vec::with_capacity(CANVAS_WIDTH * CANVAS_HEIGHT);
+    let x_range = x_max - x_min;
+    let y_range = y_max - y_min;
 
-        if x_range <= 0.0 || y_range <= 0.0 {
-            return vec![];
-        }
-
-        for screen_y in 0..CANVAS_HEIGHT {
-            for screen_x in 0..CANVAS_WIDTH {
-                let c_re = bounds.x_min + (screen_x as f64 * x_range / CANVAS_WIDTH as f64);
-                let c_im = bounds.y_min + (screen_y as f64 * y_range / CANVAS_HEIGHT as f64);
-
-                let mut z_re = 0.0;
-                let mut z_im = 0.0;
-                let mut iter = 0;
-
-                while z_re * z_re + z_im * z_im <= 4.0 && iter < max_iterations {
-                    let next_re = z_re * z_re - z_im * z_im + c_re;
-                    let next_im = 2.0 * z_re * z_im + c_im;
-                    z_re = next_re;
-                    z_im = next_im;
-                    iter += 1;
-                }
-
-                points.push(FractalPoint {
-                    x: screen_x as f64,
-                    y: screen_y as f64,
-                    intensity: Self::encode_intensity(iter, max_iterations),
-                });
-            }
-        }
-        points
+    if x_range <= 0.0 || y_range <= 0.0 {
+        return vec![];
     }
+
+    for screen_y in 0..CANVAS_HEIGHT {
+        for screen_x in 0..CANVAS_WIDTH {
+            let c_re = x_min + (screen_x as f64 * x_range / CANVAS_WIDTH as f64);
+            let c_im = y_min + (screen_y as f64 * y_range / CANVAS_HEIGHT as f64);
+
+            let mut z_re = 0.0;
+            let mut z_im = 0.0;
+            let mut iter = 0;
+
+            while z_re * z_re + z_im * z_im <= 4.0 && iter < max_iterations {
+                let next_re = z_re * z_re - z_im * z_im + c_re;
+                let next_im = 2.0 * z_re * z_im + c_im;
+                z_re = next_re;
+                z_im = next_im;
+                iter += 1;
+            }
+
+            points.push(FractalPoint {
+                x: screen_x as f64,
+                y: screen_y as f64,
+                intensity: Self::encode_intensity(iter, max_iterations),
+            });
+        }
+    }
+    points
+}
 
     pub fn generate_julia(&self, bounds: Bounds, max_iterations: i32) -> Vec<FractalPoint> {
         let mut points = Vec::with_capacity(CANVAS_WIDTH * CANVAS_HEIGHT);

@@ -1,70 +1,77 @@
 use wasm_bindgen::prelude::*;
-
 use rand::Rng;
 
 const CANVAS_WIDTH: usize = 800;
 const CANVAS_HEIGHT: usize = 600;
 
 #[wasm_bindgen]
-pub struct FractalEngine;
+pub struct FractalEngine {
+    buffer: Vec<f64>,
+}
 
 #[wasm_bindgen]
 impl FractalEngine {
     #[wasm_bindgen(constructor)]
     pub fn new() -> FractalEngine {
-        FractalEngine
+        FractalEngine {
+            buffer: Vec::with_capacity(CANVAS_WIDTH * CANVAS_HEIGHT * 3),
+        }
     }
 
-    /// Generates the fractal using primitive boundary inputs to avoid Wasm ABI mapping errors,
-    /// returning a flat Float64Array [x1, y1, intensity1, x2, y2, intensity2, ...]
+    /// Returns a pointer to the start of the buffer in WebAssembly memory
+    pub fn buffer_ptr(&self) -> *const f64 {
+        self.buffer.as_ptr()
+    }
+
+    /// Returns the element count of the buffer
+    pub fn buffer_len(&self) -> usize {
+        self.buffer.len()
+    }
+
     pub fn generate(
-        &self,
+        &mut self,
         kind: u8,
         x_min: f64,
         x_max: f64,
         y_min: f64,
         y_max: f64,
         max_iterations: i32,
-    ) -> Result<js_sys::Float64Array, JsValue> {
-        let points = match kind {
-            1 => Self::generate_mandelbrot(x_min, x_max, y_min, y_max, max_iterations),
-            2 => Self::generate_julia(x_min, x_max, y_min, y_max, max_iterations),
-            3 => Self::generate_leaf(),
+    ) -> Result<(), JsValue> {
+        self.buffer.clear();
+
+        match kind {
+            1 => Self::generate_mandelbrot(&mut self.buffer, x_min, x_max, y_min, y_max, max_iterations),
+            2 => Self::generate_julia(&mut self.buffer, x_min, x_max, y_min, y_max, max_iterations),
+            3 => Self::generate_leaf(&mut self.buffer),
             _ => return Err(JsValue::from_str("Invalid fractal kind")),
         };
 
-        let mut flat_data = Vec::with_capacity(points.len() * 3);
-        for pt in points {
-            flat_data.push(pt.x);
-            flat_data.push(pt.y);
-            flat_data.push(pt.intensity as f64);
-        }
-
-        Ok(js_sys::Float64Array::from(&flat_data[..]))
+        Ok(())
     }
-}
-
-struct FractalPoint {
-    x: f64,
-    y: f64,
-    intensity: i32,
 }
 
 impl FractalEngine {
-    fn encode_intensity(iter: i32, max_iterations: i32) -> i32 {
+    #[inline]
+    fn encode_intensity(iter: i32, max_iterations: i32) -> f64 {
         if iter == max_iterations {
-            return 0;
+            return 0.0;
         }
-        (iter * 255) / max_iterations
+        ((iter * 255) / max_iterations) as f64
     }
 
-    fn generate_mandelbrot(x_min: f64, x_max: f64, y_min: f64, y_max: f64, max_iterations: i32) -> Vec<FractalPoint> {
-        let mut points = Vec::with_capacity(CANVAS_WIDTH * CANVAS_HEIGHT);
+    fn generate_mandelbrot(
+        buffer: &mut Vec<f64>,
+        x_min: f64,
+        x_max: f64,
+        y_min: f64,
+        y_max: f64,
+        max_iterations: i32,
+    ) {
         let x_range = x_max - x_min;
         let y_range = y_max - y_min;
 
         if x_range <= 0.0 || y_range <= 0.0 {
-            return vec![];
+            return;
         }
 
         for screen_y in 0..CANVAS_HEIGHT {
@@ -84,18 +91,21 @@ impl FractalEngine {
                     iter += 1;
                 }
 
-                points.push(FractalPoint {
-                    x: screen_x as f64,
-                    y: screen_y as f64,
-                    intensity: Self::encode_intensity(iter, max_iterations),
-                });
+                buffer.push(screen_x as f64);
+                buffer.push(screen_y as f64);
+                buffer.push(Self::encode_intensity(iter, max_iterations));
             }
         }
-        points
     }
 
-    fn generate_julia(x_min: f64, x_max: f64, y_min: f64, y_max: f64, max_iterations: i32) -> Vec<FractalPoint> {
-        let mut points = Vec::with_capacity(CANVAS_WIDTH * CANVAS_HEIGHT);
+    fn generate_julia(
+        buffer: &mut Vec<f64>,
+        x_min: f64,
+        x_max: f64,
+        y_min: f64,
+        y_max: f64,
+        max_iterations: i32,
+    ) {
         let x_range = x_max - x_min;
         let y_range = y_max - y_min;
         let c_re = -0.400;
@@ -115,22 +125,19 @@ impl FractalEngine {
                     iter += 1;
                 }
 
-                points.push(FractalPoint {
-                    x: screen_x as f64,
-                    y: screen_y as f64,
-                    intensity: Self::encode_intensity(iter, max_iterations),
-                });
+                buffer.push(screen_x as f64);
+                buffer.push(screen_y as f64);
+                buffer.push(Self::encode_intensity(iter, max_iterations));
             }
         }
-        points
     }
 
-    fn generate_leaf() -> Vec<FractalPoint> {
-        let mut pixel_grid = [[0; CANVAS_HEIGHT]; CANVAS_WIDTH];
+    fn generate_leaf(buffer: &mut Vec<f64>) {
+        let mut pixel_grid = [[0u8; CANVAS_HEIGHT]; CANVAS_WIDTH];
         let mut x = 0.0;
         let mut y = 0.0;
         let mut rng = rand::thread_rng();
-        let total_points = 150000;
+        let total_points = 150_000;
 
         for _ in 0..total_points {
             let next_x;
@@ -162,18 +169,14 @@ impl FractalEngine {
             }
         }
 
-        let mut points = Vec::new();
         for px in 0..CANVAS_WIDTH {
             for py in 0..CANVAS_HEIGHT {
                 if pixel_grid[px][py] > 0 {
-                    points.push(FractalPoint {
-                        x: px as f64,
-                        y: py as f64,
-                        intensity: pixel_grid[px][py],
-                    });
+                    buffer.push(px as f64);
+                    buffer.push(py as f64);
+                    buffer.push(pixel_grid[px][py] as f64);
                 }
             }
         }
-        points
     }
 }
